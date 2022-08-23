@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/CryoMEM",
+            "program": "run.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "./configs/DRAM.cfg",
+                "4",
+                "22",
+                "1.2",
+                "0.4",
+                "262144",
+                "dram",
+                "1.2",
+                "0.4"
+            ]
+        }
+    ]
+}
