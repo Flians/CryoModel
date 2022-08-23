@@ -26,6 +26,7 @@ The updated version will be released soon.
 
  * Python 3.8
  * Protobuf (pip install protobuf)
+ * sudo apt-get install libprotobuf-dev protobuf-compiler
 
 
 ## Cryo-MOSFET
