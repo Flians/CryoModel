@@ -144,16 +144,17 @@ def main():
     # Code to support 4K
     pgen_path = None
     if args.temperature >= 77:
-        pgen_path = args.pgen
-    elif args.temperature == 4:
+        #pgen_path = args.pgen
+        pgen_path = './CryoMOSFET_77K/pgen.py'
+    elif args.temperature >= 4:
         pgen_path = './CryoMOSFET_4K/pgen.py'
     else:
         print ("Current version of CryoMEM does not support {}K.".format (args.temperature))
         exit ()
 
-    hp_results = pgen.run(args.pgen, pgen.mosfet_mode.HP, args.temperature, args.node, args.vdd, args.vth)
+    hp_results = pgen.run(pgen_path, pgen.mosfet_mode.HP, args.temperature, args.node, args.vdd, args.vth)
     if args.cell_type == 'dram':
-        acc_results = pgen.run(args.pgen, pgen.mosfet_mode.ACC, args.temperature, args.node, args.acc_vdd, args.acc_vth)
+        acc_results = pgen.run(pgen_path, pgen.mosfet_mode.ACC, args.temperature, args.node, args.acc_vdd, args.acc_vth)
         model_dram(args.cacti_config_file, {'hp': hp_results, 'wl': acc_results})
     else:
         model_cache(args.cacti_config_file, args.capacity, hp_results)
